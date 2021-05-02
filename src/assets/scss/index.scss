@@ -1,0 +1,89 @@
+body {
+  font-family: 'Open Sans', Helvetica, sans-serif;
+  height: 100%;
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: darkblue;
+  font-family: Gotham;
+}
+
+// Ant Design Components
+/* stylelint-disable */
+
+#root {
+  height: 100%;
+}
+
+/* stylelint-enable */
+
+header {
+  border-bottom: 1px solid #eaeaea;
+  width: 100%;
+}
+
+main {
+  background-color: #f5f6f8;
+  display: flex !important;
+  flex: 1;
+  flex-direction: column;
+  padding: 2rem 5%;
+  width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* stylelint-disable */
+
+/* layout */
+.ant-layout-header {
+  background-color: white;
+  font-family: 'Poppins', sans-serif;
+  height: 80px;
+  padding: 0 0.2rem;
+  top: 0;
+}
+
+/* side menu */
+aside[class*='SideMenu'] {
+  background-color: red;
+  height: 100%;
+
+  .ant-layout-sider {
+    background-color: white;
+    height: 100%;
+  }
+
+  .ant-layout-sider-children {
+    margin-top: 2rem;
+    background-color: white;
+  }
+
+  .ant-menu-item-active {
+    &:hover {
+      background-color: #d4e4f6;
+    }
+  }
+
+  .ant-menu-item:active {
+    background-color: transparent;
+    color: black !important;
+  }
+  .ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected {
+    background-color: #d4e4f6;
+
+    span {
+      color: black;
+      font-weight: 700;
+    }
+  }
+}
