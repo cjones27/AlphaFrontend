@@ -16,7 +16,7 @@ const NavBar = () => {
       <Menu.Item>
         {logged ? (
           <Link to="/">
-            <span onClick={logout}>Cerrar sesión</span>
+            <span onClick={{}}>Cerrar sesión</span>
           </Link>
         ) : (
           <Link to="/login">
@@ -32,13 +32,22 @@ const NavBar = () => {
       {logged ? (
         <>
           <Link to="/">
-            <span onClick={logout}>Cerrar sesión</span>
+            <span onClick={{}}>Cerrar sesión</span>
           </Link>
         </>
       ) : (
-        <Link to="/login">
-          <span>Iniciar sesión</span>
-        </Link>
+        <>
+          <div className={styles.NavItem}>
+            <Link to="/signup">
+              <span>Registrarse</span>
+            </Link>
+          </div>
+          <div className={styles.NavItem}>
+            <Link to="/login">
+              <span>Iniciar sesión</span>
+            </Link>
+          </div>
+        </>
       )}
     </>
   );
@@ -46,7 +55,7 @@ const NavBar = () => {
   return (
     <Header className={styles.Container}>
       <Link to="/">
-        <p> Home </p>
+        <p> Alpha Solutions </p>
       </Link>
       <div className={styles.NavItems}>
         {!mobileWidth ? (

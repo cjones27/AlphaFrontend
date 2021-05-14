@@ -12,13 +12,14 @@ const LayoutBar = ({ children }) => {
   //   }
   // }, []);
 
+  const logged = false;
+
   return (
     <>
       <div className={styles.Container}>
         <NavBar />
         <Layout>
-          {/* {loginCacheData?.logged && <SideMenu />} */}
-          <SideMenu />
+          {logged && <SideMenu />}
           <main>{children}</main>
         </Layout>
       </div>

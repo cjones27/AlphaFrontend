@@ -1,0 +1,26 @@
+
+.SignUp {
+  background-color: rgb(255, 255, 255);
+  color: rgb(194, 188, 188);
+  border-color: #e2e8f0;
+  border-radius: 8px;
+  border-style: solid;
+  border-width: 1px;
+  box-shadow: 0 10px 15px -3px RGBA(0 0 0 / 10%);
+  padding: 3rem;
+  margin: auto;
+  margin-top: 10%;
+  width: 40%;
+  position: relative;
+}
+
+.Title {
+  font-size: 2rem;
+  font-weight: 500;
+  line-height: 1.2;
+  margin-bottom: 3rem;
+}
+
+.FormItem {
+  margin-bottom: 1rem;
+}
