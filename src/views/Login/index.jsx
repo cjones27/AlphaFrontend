@@ -1,16 +1,20 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useHistory } from 'react-router-dom';
-import { Row, Col, Form, message, Input, Button } from 'antd';
+import { Row, Col, Form, Input, Button } from 'antd';
 import styles from './Login.module.scss';
 import MessageError from '../../error/message.error';
+import { SessionContext } from '../../context/session';
 
 
 const Login= () => {
   const history = useHistory();
   const [form] = Form.useForm();
+  const { setLogged } = useContext(SessionContext);
 
   const sendForm = async (values) => {
-    console.log(values);
+    localStorage.setItem('logged', true);
+    setLogged(true);
+    history.push('/Properties');
   };
 
   return (

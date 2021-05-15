@@ -1,22 +1,30 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { Layout, Menu, Dropdown } from 'antd';
 // import Logo from 'assets/images/cloudcar-logo.svg';
 // import logout from 'utils/logoutUser';
 import styles from './NavBar.module.scss';
 import { MenuOutlined } from '@ant-design/icons';
+import { useHistory } from 'react-router-dom';
+import { SessionContext } from '../../context/session';
 
 const NavBar = () => {
+  const history = useHistory();
   const { Header } = Layout;
-  const logged = false;
   const mobileWidth = false;
+  const { logged } = useContext(SessionContext);
+
+  const logout = () => {
+    localStorage.setItem('logged', false);
+    history.push('login');
+  }
 
   const dropwdownMenu = () => (
     <Menu>
       <Menu.Item>
         {logged ? (
           <Link to="/">
-            <span onClick={{}}>Cerrar sesión</span>
+            <span onClick={logout}>Cerrar sesión</span>
           </Link>
         ) : (
           <Link to="/login">
