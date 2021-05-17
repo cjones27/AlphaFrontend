@@ -1,24 +1,20 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext } from 'react';
 import { Layout } from 'antd';
 import NavBar from '../NavBar';
 import SideMenu from '../SideMenu';
 import styles from './Layout.module.scss';
+import { SessionContext } from '../../context/session';
 
 // eslint-disable-next-line react/prop-types
 const LayoutBar = ({ children }) => {
-  // useEffect(() => {
-  //   if (localStorage.getItem('IdToken') !== null) {
-  //     logged(true);
-  //   }
-  // }, []);
+  const { logged } = useContext(SessionContext);
 
   return (
     <>
       <div className={styles.Container}>
         <NavBar />
         <Layout>
-          {/* {loginCacheData?.logged && <SideMenu />} */}
-          <SideMenu />
+          {logged && <SideMenu />}
           <main>{children}</main>
         </Layout>
       </div>

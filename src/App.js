@@ -1,12 +1,15 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import Routes from './routes';
+import { SessionProvider } from './context/session';
 
 const App = () => {
   return (
-    <BrowserRouter>
-      <Routes />
-    </BrowserRouter>
+    <SessionProvider>
+      <BrowserRouter>
+        <Routes />
+      </BrowserRouter>
+    </SessionProvider>
   );
 };
 

@@ -14,17 +14,20 @@
 .NavItems {
   align-items: center;
   display: flex;
-  justify-content: flex-end;
-  margin-right: 1rem;
+  justify-content: space-between;
 
   a {
     &:hover {
       color: blue;
     }
   }
-
+  
   span {
     font-size: 16px;
     font-weight: 600;
   }
+}
+
+.NavItem {
+  padding: 1rem;
 }

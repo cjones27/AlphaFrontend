@@ -12,15 +12,15 @@ const SideMenu = () => {
   const adminNavegationOptions = [
     {
       path: '/optionOne',
-      name: 'option one',
+      name: 'Propiedades',
     },
     {
       path: '/optionTwo',
-      name: 'option two',
+      name: 'Reservas',
     },
     {
       path: '/optionThree',
-      name: 'option three',
+      name: 'Estadisticas',
     },
   ];
 
