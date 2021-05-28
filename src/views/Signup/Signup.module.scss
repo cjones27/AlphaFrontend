@@ -1,0 +1,30 @@
+.Signup {
+  background-color: rgb(255, 255, 255);
+  border-color: #e2e8f0;
+  border-radius: 8px;
+  border-style: solid;
+  border-width: 1px;
+  box-shadow: 0 10px 15px -3px RGBA(0 0 0 / 10%);
+  color: rgb(194, 188, 188);
+  margin: auto;
+  margin-top: 5%;
+  padding: 3rem;
+  position: relative;
+  text-align: center;
+  width: 40%;
+}
+
+.Title {
+  font-size: 2rem;
+  font-weight: 500;
+  line-height: 1.2;
+  margin-bottom: 3rem;
+}
+
+.FormItem {
+  margin-bottom: 1rem;
+}
+
+.DatePicker {
+  width: 100%;
+}

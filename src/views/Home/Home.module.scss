@@ -1,0 +1,15 @@
+.SearchContainer {
+  margin: auto;
+  width: 80%;
+}
+
+.Background {
+  cursor: zoom-in;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: background-color 300ms;
+  user-select: none;
+  width: 100%;
+}

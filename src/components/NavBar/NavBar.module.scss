@@ -1,0 +1,57 @@
+.Container {
+  background: white;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: row;
+  height: 75px;
+  justify-content: space-between;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+}
+
+.NavItems {
+  align-items: center;
+  display: flex;
+  float: right;
+  justify-content: space-between;
+  width: 100%;
+
+  a {
+    &:hover {
+      color: #d6d6d7;
+    }
+  }
+  
+  span {
+    font-size: 16px;
+    font-weight: 600;
+  }
+}
+
+.NavItem {
+  padding: 1rem;
+}
+
+.TittleItem {
+  flex: 10;
+}
+
+.NotificationDropdown {
+  background-color: #323639;
+  border: 1px solid black;
+  min-width: 250px;
+  overflow: hidden;
+  padding: 1rem;
+  position: fixed;
+  right: 0;
+  top: 80px;
+  transform: translateX(-20%);
+  width: fit-content;
+  
+  p {
+    color: white !important;
+    margin: none !important;
+  }
+}
