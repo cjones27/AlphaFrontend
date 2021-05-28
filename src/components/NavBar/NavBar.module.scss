@@ -14,11 +14,13 @@
 .NavItems {
   align-items: center;
   display: flex;
+  float: right;
   justify-content: space-between;
+  width: 100%;
 
   a {
     &:hover {
-      color: blue;
+      color: #d6d6d7;
     }
   }
   
@@ -30,4 +32,26 @@
 
 .NavItem {
   padding: 1rem;
+}
+
+.TittleItem {
+  flex: 10;
+}
+
+.NotificationDropdown {
+  background-color: #323639;
+  border: 1px solid black;
+  min-width: 250px;
+  overflow: hidden;
+  padding: 1rem;
+  position: fixed;
+  right: 0;
+  top: 80px;
+  transform: translateX(-20%);
+  width: fit-content;
+  
+  p {
+    color: white !important;
+    margin: none !important;
+  }
 }

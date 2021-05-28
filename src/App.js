@@ -1,15 +1,15 @@
 import React from 'react';
+import ApolloWrapperProvider from './apollo/provider';
 import { BrowserRouter } from 'react-router-dom';
 import Routes from './routes';
-import { SessionProvider } from './context/session';
 
 const App = () => {
   return (
-    <SessionProvider>
+    <ApolloWrapperProvider>
       <BrowserRouter>
         <Routes />
       </BrowserRouter>
-    </SessionProvider>
+    </ApolloWrapperProvider>
   );
 };
 

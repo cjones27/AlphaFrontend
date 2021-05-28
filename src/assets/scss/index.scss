@@ -1,6 +1,9 @@
 @import '~antd/dist/antd.css';
+@import './fonts';
 
 body {
+  background-color: #1c1d1f;
+  background-size: contain;
   font-family: 'Open Sans', Helvetica, sans-serif;
   height: 100%;
   margin: 0;
@@ -13,7 +16,7 @@ h3,
 h4,
 h5,
 h6 {
-  color: darkblue;
+  color: rgb(20, 20, 20);
   font-family: Gotham;
 }
 
@@ -25,8 +28,6 @@ h6 {
   overflow-x: hidden;
 }
 
-/* stylelint-enable */
-
 header {
   border-bottom: 1px solid #eaeaea;
   width: 100%;
@@ -34,24 +35,24 @@ header {
 }
 
 main {
-  background-color: #f5f6f8;
+  // background-color: #1c1d1f;
   display: flex !important;
   flex: 1;
   flex-direction: column;
   max-width: 100%;
   overflow-x: hidden;
+  margin-top: 80px;
+  padding: 2rem;
 }
 
 a {
-  color: inherit;
+  color: white;
   text-decoration: none;
 }
 
-/* stylelint-disable */
-
 /* layout */
 .ant-layout-header {
-  background-color: white;
+  background-color: #323639;
   font-family: 'Poppins', sans-serif;
   height: 80px;
   padding: 2rem 2rem 2rem 2rem;
@@ -60,16 +61,26 @@ a {
 
 /* side menu */
 aside[class*='SideMenu'] {
-  background-color: white;
+  margin-top: 80px;
+  background-color: #323639;
+  z-index: 100;
 
+
+  ul {
+    background-color: #323639;
+    border: none;
+  }
+
+  span {
+    color: white;
+  }
   .ant-layout-sider {
-    background-color: white;
-    height: 100%;
+    background-color: #323639;
   }
 
   .ant-layout-sider-children {
-    margin-top: 5rem;
-    background-color: white;
+    margin-top: 1rem;
+    background-color: #323639;
   }
 
   .ant-menu-item-active {
@@ -79,15 +90,31 @@ aside[class*='SideMenu'] {
   }
 
   .ant-menu-item:active {
-    background-color: transparent;
+    background-color:  #D6D6D7;
     color: black !important;
   }
   .ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected {
-    background-color: #d4e4f6;
+    background-color: #D6D6D7;
 
     span {
-      color: black;
+      color: #323639;
       font-weight: 700;
     }
   }
+}
+
+aside[class*='Appointments'] {
+  .ant-badge-status {
+    font-size: 12px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100%;
+  }
+}
+
+.ant-btn-primary {
+  color: #fff;
+  background: #323639;
+  border-color: #323639;
 }
