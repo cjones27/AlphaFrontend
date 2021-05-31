@@ -39,7 +39,7 @@
     "stylelint-order": "^4.1.0"
   },
   "scripts": {
-    "start": "PORT=process.env.PORT react-scripts start",
+    "start": "PORT=3000 react-scripts start",
     "build": "dotenv -e .env.development react-scripts build",
     "test": "react-scripts test --coverage --watchAll=false",
     "eject": "react-scripts eject",
