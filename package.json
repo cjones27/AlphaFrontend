@@ -10,6 +10,7 @@
     "@apollo/client": "^3.3.19",
     "antd": "^4.15.1",
     "axios": "^0.21.1",
+    "dotenv-cli": "^4.0.0",
     "history": "^4.10.1",
     "lodash": "^4.17.20",
     "luxon": "^1.25.0",
