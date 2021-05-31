@@ -18,13 +18,21 @@
   width: fit-content;
 }
 
-.Calendar {
-  z-index: 100;
-}
-
 .Events {
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
+.PropertyImage {
+  border-radius: 16px;
+  max-height: 300px;
+  max-width: 300px;
+}
+
+.ButtonsDiv {
+  display: flex;
+  flex-direction: row !important;
+  float: right;
+  margin-top: 22%;
+}

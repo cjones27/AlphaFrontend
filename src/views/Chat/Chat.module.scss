@@ -1,0 +1,56 @@
+.ChatContainer {
+  background-color: white;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  max-height: 600px;
+  min-height: 600px;
+  overflow-y: scroll;
+  padding: 1rem;
+  width: 100%;
+  
+}
+
+.RowContainer {
+  flex-direction: column;
+  height: 100%;
+}
+
+
+.ContentContainer {
+  background-color: white;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  min-height: 90%;
+  padding: 2rem;
+  width: 100%;
+}
+
+.MessageContainer {
+  max-height: 20%;
+  padding: 1rem;
+  width: 100%;
+}
+
+.MyMessage {
+  background-color: rgb(245, 245, 245);
+  border: 1px solid rgb(189, 187, 187);
+  border-radius: 32px;
+  margin-bottom: 0.5rem;
+  margin-left: auto;
+  max-height: 30 px;
+  max-width: min-content;
+  padding: 0.4rem;
+}
+
+
+.OtherMessage {
+  background-color: rgb(245, 245, 245);
+  border: 1px solid rgb(189, 187, 187);
+  border-radius: 32px;
+  margin-bottom: 0.5rem;
+  max-height: 30 px;
+  max-width: min-content;
+  padding: 0.4rem;
+}

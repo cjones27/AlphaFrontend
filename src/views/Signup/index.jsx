@@ -19,7 +19,6 @@ const Signup = () => {
         last_name,
         email,
         password,
-        user_type: 1,
         date_of_birth: date_of_birth.format('YYYY-MM-DD'),
       });
       history.push('/login');

@@ -4,7 +4,7 @@ import { Row, Col, Form, Input, Button } from 'antd';
 import styles from './Login.module.scss';
 import MessageError from '../../error/message.error';
 import services from '../../utils/axios';
-import { logged, username } from '../../apollo/cache';
+import { logged, username, isAdmin } from '../../apollo/cache';
 
 const { loginRequest } = services;
 
@@ -19,13 +19,14 @@ const Login = () => {
         email,
         password,
       });
-      const { api_key, id } = response.response;
+      const { api_key, id, user_type } = response.response;
       localStorage.setItem('logged', true);
       localStorage.setItem('userId', id);
       localStorage.setItem('username', email);
       localStorage.setItem('apiKey', api_key);
       logged(true);
       username(email);
+      isAdmin(user_type === 1);
       history.push('/properties');
     } catch (error) {
       console.log(error);

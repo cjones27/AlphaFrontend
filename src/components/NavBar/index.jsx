@@ -16,10 +16,10 @@ const NavBar = () => {
   const [notifications, setNotifications] = useState(false);
   const [settings, setSettings] = useState(false);
 
-  const logout = () => {
+  const logout = async () => {
     localStorage.clear();
     logged(false);
-    history.push('login');
+    await history.push('/login');
   };
 
   const dropwdownMenu = () => (
@@ -27,7 +27,7 @@ const NavBar = () => {
       <Menu.Item>
         {loggedVar ? (
           <Link to="/">
-            <span onClick={logout}>Cerrar sesión</span>
+            <span onClick={() => logout}>Cerrar sesión</span>
           </Link>
         ) : (
           <Link to="/login">
@@ -58,7 +58,7 @@ const NavBar = () => {
     <>
       {loggedVar ? (
         <>
-          <Link to="/" className={styles.NavItem}>
+          <Link to="profile" className={styles.NavItem}>
             <span>{usernameVar}</span>
           </Link>
           <MailOutlined

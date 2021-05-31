@@ -2,12 +2,14 @@ import React, { useState } from 'react';
 import { Layout, Menu } from 'antd';
 import { Link, useLocation } from 'react-router-dom';
 import styles from './SideMenu.module.scss';
+import { useReactiveVar } from '@apollo/client';
+import { isAdmin } from '../../apollo/cache';
 
 const SideMenu = () => {
   const { Sider } = Layout;
   const { pathname } = useLocation();
   const [selectedOption, setSelectedOption] = useState(pathname);
-  const isUserSuperAdmin = true;
+  const isUserSuperAdmin = useReactiveVar(isAdmin);
 
   const adminNavegationOptions = [
     {
@@ -19,8 +21,8 @@ const SideMenu = () => {
       name: 'Reservas',
     },
     {
-      path: '/messages',
-      name: 'Mensajes',
+      path: '/users',
+      name: 'Usuarios',
     },
     {
       path: '/information',
@@ -30,16 +32,16 @@ const SideMenu = () => {
 
   const userNavegationOptions = [
     {
-      path: '/optionOne',
-      name: 'option one',
+      path: '/properties',
+      name: 'Tus propiedades',
     },
     {
-      path: '/optionTwo',
-      name: 'option two',
+      path: '/appointments',
+      name: 'Tus reservas',
     },
     {
-      path: '/optionThree',
-      name: 'option three',
+      path: '/messages',
+      name: 'Mensajes',
     },
   ];
 

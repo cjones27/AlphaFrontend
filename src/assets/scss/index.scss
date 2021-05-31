@@ -16,8 +16,10 @@ h3,
 h4,
 h5,
 h6 {
-  color: rgb(20, 20, 20);
+  color: rgb(0, 0, 0);
   font-family: Gotham;
+  font-size: 20px;
+  font-weight: 300;
 }
 
 // Ant Design Components
@@ -103,18 +105,77 @@ aside[class*='SideMenu'] {
   }
 }
 
-aside[class*='Appointments'] {
-  .ant-badge-status {
-    font-size: 12px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    width: 100%;
+aside[class*='Properties'] {
+
+  .ant-card .ant-card-bordered {
+    border-radius: 16px;
   }
+
 }
 
-.ant-btn-primary {
+aside[class*='Appointments'] {
+
+  .ant-card .ant-card-bordered {
+    border-radius: 16px;
+  }
+
+}
+
+aside[class*='Messages'] {
+
+  .ant-card .ant-card-bordered {
+    border-radius: 16px;
+  }
+
+}
+
+.ant-card-body {
+  padding: 0.5rem;
+  border-radius: 16px;
+}
+// aside[class*='Appointments'] {
+//   .ant-badge-status {
+//     font-size: 12px;
+//     overflow: hidden;
+//     text-overflow: ellipsis;
+//     white-space: nowrap;
+//     width: 100%;
+//   }
+// }
+
+// aside[class*='Properties'] {
+//   .ant-btn
+  
+//     &:hover {
+//       color: #fff;
+//       background: #4c4e50;
+//     }
+  
+//     :focus {
+//       color: #fff;
+//       background: #4c4e50;
+//     } 
+
+// }
+// .ant-btn-primary {
+//   color: #fff;
+//   background: #323639;
+//   border-color: #323639;
+// }
+
+.ant-btn {
+  border-radius: 4px;
   color: #fff;
-  background: #323639;
+  background: #4c4e50;
   border-color: #323639;
+
+  // :hover {
+  //   color: #fff;
+  //   background: #4c4e50;
+  // }
+
+  // :focus {
+  //   color: #fff;
+  //   background: #4c4e50;
+  // }
 }

@@ -1,13 +1,7 @@
 .CreateButton {
   float: right;
   margin-bottom: 0.5rem;
-  min-width: 100px;
-  width: fit-content;
-}
-
-.Button {
-  float: right;
-  margin-bottom: 0.5rem;
+  margin-right: 1rem;
   min-width: 100px;
   width: fit-content;
 }
@@ -15,12 +9,8 @@
 .PropertyCard {
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   cursor: pointer;
-  padding: 0.5rem;
+  padding: 1rem;
   width: 100%;
-}
-
-.PropertyDescription {
-  flex-direction: column;
 }
 
 .PropertyDiv {
@@ -34,6 +24,10 @@
   font-weight: 700;
 }
 
+.FormItem {
+  margin-bottom: 1.5rem;
+}
+
 .CheckBox {
   display: flex;
 
@@ -41,22 +35,4 @@
     align-self: center;
     justify-self: center;
   }
-}
-
-.PropertyImage {
-  border-radius: 16px;
-  height: auto;
-  max-height: 100%;
-  max-width: 100%;
-  width: auto;
-}
-
-.ButtonsDiv {
-  display: flex;
-  flex-direction: row !important;
-}
-
-.ButtonDiv {
-  flex-direction: row !important;
-  margin-right: 1rem;
 }

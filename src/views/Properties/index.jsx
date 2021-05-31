@@ -1,14 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import services from '../../utils/axios';
-import { Row, Col, Form, Input, Button, Card, Modal, Checkbox, DatePicker } from 'antd';
+import { Row, Col, Form, Input, Button, Card, Modal, Checkbox, Divider } from 'antd';
 import styles from './Properties.module.scss';
+import AppointmentModal from '../../components/SetAppointments';
+import { DollarOutlined } from '@ant-design/icons';
+import { isAdmin } from '../../apollo/cache';
 
-const {
-  createPropertyRequest,
-  getPropertiesRequest,
-  deletePropertyRequest,
-  createAppointmentRequest,
-} = services;
+const { createPropertyRequest, getPropertiesRequest, deletePropertyRequest } = services;
 
 const Properties = () => {
   const [properties, setProperties] = useState([]);
@@ -18,11 +16,16 @@ const Properties = () => {
   const [electricity, setElectricity] = useState(false);
   const [sewer, setSewer] = useState(false);
   const [createdProperty, setCreatedProperty] = useState(false);
-  const [picker, setPicker] = useState({});
+  const [propertyId, setPropertyId] = useState(null);
+  const [appointmentModal, setAppointmentModal] = useState(false);
 
   const createProperty = async (values) => {
     await createPropertyRequest(
       {
+        title: values.title,
+        area: values.area,
+        address: values.address,
+        contact: '964796916',
         price: values.price,
         description: values.description,
         water,
@@ -41,26 +44,31 @@ const Properties = () => {
     setProperties([...properties.filter((propertie) => propertie.id !== propertyId)]);
   };
 
-  const handlePicker = async (values, id) => {
-    const date = new Date(values._d).toISOString();
-    const datetime = new Date(date.slice(0, date.indexOf('T'))).toISOString();
-    const response = await createAppointmentRequest({
-      datetime,
-      status: 'default',
-      user_id: localStorage.getItem('userId'),
-      property_id: id,
-    });
-    console.log(response);
-  };
-
   useEffect(async () => {
-    const properties = await getPropertiesRequest();
-    console.log;
-    setProperties([...properties.response]);
+    let propertiesResponse = await getPropertiesRequest();
+    if (!isAdmin()) {
+      propertiesResponse = propertiesResponse.response.filter((propertie) => {
+        if (parseInt(propertie.user.id) === parseInt(localStorage.getItem('userId'))) {
+          return propertie;
+        }
+      });
+    } else {
+      propertiesResponse = propertiesResponse.response;
+    }
+
+    setProperties([...propertiesResponse]);
   }, [createdProperty]);
 
   return (
     <>
+      {appointmentModal ? (
+        <AppointmentModal
+          visible={appointmentModal}
+          handleOk={() => setAppointmentModal(false)}
+          handleCancel={() => setAppointmentModal(false)}
+          propertyId={propertyId}
+        />
+      ) : null}
       <Modal
         visible={visible}
         onOk={() => setVisibile(false)}
@@ -72,13 +80,28 @@ const Properties = () => {
         <Form form={form} onFinish={createProperty}>
           <Row justify="space-between" gutter={16}>
             <Col xs={24} md={12}>
-              <Form.Item className={styles.FormItem} name="name">
+              <Form.Item className={styles.FormItem} name="title">
                 <Input label="Nombre" placeholder="nombre" required />
               </Form.Item>
             </Col>
             <Col xs={24} md={12}>
               <Form.Item className={styles.FormItem} name="description">
                 <Input label="Descripción" placeholder="descripción" required />
+              </Form.Item>
+            </Col>
+            <Col xs={24} md={12}>
+              <Form.Item className={styles.FormItem} name="area">
+                <Input
+                  type="number"
+                  label="Área terreno"
+                  placeholder="Area del terreno"
+                  required
+                />
+              </Form.Item>
+            </Col>
+            <Col xs={24} md={12}>
+              <Form.Item className={styles.FormItem} name="address">
+                <Input label="Dirección" placeholder="Dirección" required />
               </Form.Item>
             </Col>
             <Col xs={24} md={12}>
@@ -136,40 +159,65 @@ const Properties = () => {
           </Button>
         </Col>
         {properties.map((propertie, index) => (
-          <Col xs={24} md={11} key={index} className={styles.PropertyDiv}>
-            <Card className={styles.PropertyCard}>
+          <Col xs={24} key={index} className={styles.PropertyDiv}>
+            <Card className={styles.PropertyCard} style={{ borderRadius: '16px' }}>
               <Row>
-                <Col xs={24}>
-                  {propertie.description} {propertie.id}
+                <Col md={6}>
+                  <img
+                    className={styles.PropertyImage}
+                    src="https://i.pinimg.com/originals/45/90/b7/4590b78d130665700afaa2e718e3efdf.png"
+                    alt=""
+                  ></img>
                 </Col>
-                <Col xs={24}>
-                  <Button
-                    className={styles.CreateButton}
-                    onClick={() => deleteProperty(propertie.id)}
-                  >
-                    Eliminar propiedad
-                  </Button>
-                </Col>
-                <Col xs={24}>
-                  <Button
-                    className={styles.CreateButton}
-                    onClick={() => {
-                      const oldPicker = { ...picker };
-                      oldPicker[propertie.id] = oldPicker[propertie.id] ? false : true;
-                      setPicker({ ...oldPicker });
-                    }}
-                  >
-                    Ingresar visita
-                  </Button>
-                  {picker[propertie.id] && (
-                    <DatePicker
-                      onOk={(values) => handlePicker(values, propertie.id)}
-                      showTime={{ format: 'HH:mm' }}
-                      format="DD-MM-YYYY"
-                      className={styles.DatePicker}
-                      placeholder="Agregar visita"
-                    />
-                  )}
+                <Col offset={2} md={16} className={styles.PropertyDescription}>
+                  <Row>
+                    <Col md={12} className={styles.PropertyDescription}>
+                      <h2> {propertie.title} </h2>
+                    </Col>
+                    <Col md={12} className={styles.PropertyDescription}>
+                      <Button
+                        className={styles.Button}
+                        onClick={() => deleteProperty(propertie.id)}
+                      >
+                        Eliminar propiedad
+                      </Button>
+                    </Col>
+                    <Col md={12} className={styles.PropertyDescription}>
+                      <p> {propertie.description} </p>
+                    </Col>
+                    <Col md={12} className={styles.PropertyDescription}>
+                      <Button
+                        className={styles.Button}
+                        onClick={() => {
+                          setAppointmentModal(true);
+                          setPropertyId(propertie.id);
+                        }}
+                      >
+                        Ingresar visita
+                      </Button>
+                    </Col>
+                  </Row>
+                  <Divider />
+                  <Row>
+                    <Col md={8} className={styles.PropertyDescription}>
+                      <p> Direccion: {propertie.address} </p>
+                    </Col>
+                    <Col md={8} className={styles.PropertyDescription}>
+                      <p> Contacto:{propertie.contact} </p>
+                    </Col>
+                    <Col md={8} className={styles.PropertyDescription}>
+                      <p> Area terreno: {propertie.area} </p>
+                    </Col>
+                    <Col md={8} className={styles.PropertyDescription}>
+                      <p> Precio: {propertie.price} </p>
+                    </Col>
+                    <Col md={8} className={styles.PropertyDescription}>
+                      {propertie.water && <p> Agua </p>}
+                    </Col>
+                    <Col md={8} className={styles.PropertyDescription}>
+                      {propertie.electricity && <p> Electricidad </p>}
+                    </Col>
+                  </Row>
                 </Col>
               </Row>
             </Card>

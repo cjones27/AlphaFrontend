@@ -1,0 +1,21 @@
+.EditInformation {
+  display: flex;
+  justify-content: space-between;
+}
+
+.ContactInformation {
+  border: solid 1px #e2e8f0;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  cursor: pointer;
+  margin-top: 1rem;
+  padding: 1rem;
+}
+
+.CardContainer {
+  margin-bottom: 3rem;
+}
+
+.EditContactInformationButton {
+  display: flex;
+  justify-content: space-between;
+}
