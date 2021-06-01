@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/AlphaFrontend/static/css/main.36eed9bc.chunk.css",
+    "main.js": "/AlphaFrontend/static/js/main.ed44b9c8.chunk.js",
+    "main.js.map": "/AlphaFrontend/static/js/main.ed44b9c8.chunk.js.map",
+    "runtime-main.js": "/AlphaFrontend/static/js/runtime-main.919aa5a1.js",
+    "runtime-main.js.map": "/AlphaFrontend/static/js/runtime-main.919aa5a1.js.map",
+    "static/css/2.f738492e.chunk.css": "/AlphaFrontend/static/css/2.f738492e.chunk.css",
+    "static/js/2.ef8dea7c.chunk.js": "/AlphaFrontend/static/js/2.ef8dea7c.chunk.js",
+    "static/js/2.ef8dea7c.chunk.js.map": "/AlphaFrontend/static/js/2.ef8dea7c.chunk.js.map",
+    "index.html": "/AlphaFrontend/index.html",
+    "static/css/2.f738492e.chunk.css.map": "/AlphaFrontend/static/css/2.f738492e.chunk.css.map",
+    "static/css/main.36eed9bc.chunk.css.map": "/AlphaFrontend/static/css/main.36eed9bc.chunk.css.map",
+    "static/js/2.ef8dea7c.chunk.js.LICENSE.txt": "/AlphaFrontend/static/js/2.ef8dea7c.chunk.js.LICENSE.txt",
+    "static/media/index.scss": "/AlphaFrontend/static/media/Gotham Regular.ec261687.otf"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.919aa5a1.js",
+    "static/css/2.f738492e.chunk.css",
+    "static/js/2.ef8dea7c.chunk.js",
+    "static/css/main.36eed9bc.chunk.css",
+    "static/js/main.ed44b9c8.chunk.js"
+  ]
+}
